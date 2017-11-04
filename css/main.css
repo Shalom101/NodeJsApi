@@ -1,0 +1,134 @@
+:root{
+  --gradient: linear-gradient(210.02deg, #27C1F7 5.35%, #3697EF 63.89%);
+  --transition: 0.4s all ease;
+  --hover_color: #2AB9F6;
+}
+
+.background{
+  background: var(--gradient);
+  height: 100vh;
+}
+
+.desc-img{
+  margin: 0 auto;
+  margin-top:5vh;
+}
+
+.description{
+  margin-top: 2.5vh;
+  font-size: 18px;
+  color: white;
+  font-style: normal;
+  font-weight: 50;
+  line-height: normal;
+  text-align: center;
+}
+
+.get-started-button{
+  margin-top: 5vh;
+  padding: 10px 15px 10px 15px;
+  font-family: Nunito;
+  font-style: normal;
+  line-height: normal;
+  font-size: 18px;
+  color: #3697EF;
+  -webkit-transition: ;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.get-started-button:hover,.get-started-button:visited,.get-started-button:active,.get-started-button:focus{
+  border: solid 1px white;
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+}
+
+.header{
+  background: var(--gradient);
+  height: 10vh;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
+  z-index: 1;
+  padding: 20px 0px 0px 50px;
+  font-size: 15px;
+  color: white;
+
+}
+
+.sidebar{
+  background: var(--gradient);
+  height: 90vh;
+  position: fixed;
+  margin-top: 10vh;
+  padding: 30px 0px;
+}
+
+.option{
+  font-size: 17px;
+  color: white;
+  font-family: Nunito;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+  margin: 20px 0px 20px 0px;
+}
+
+ .st0{
+  fill:#FFFFFF;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.option:hover .st0{
+  fill:var(--hover_color);
+}
+
+.option:hover{
+  background-color: white;
+  color: var(--hover_color);
+}
+
+.active{
+  background-color: white;
+  color: var(--hover_color);
+}
+
+.active .st0{
+  fill:var(--hover_color);
+}
+
+.add-button{
+  background-color: var(--hover_color);
+  color: white;
+  border: 0px;
+  font-size: 15px;
+  padding: 10px;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+  outline: 0;
+}
+
+.add-button:hover, .add-button:active, .add-button:focus{
+  border: 1px solid var(--hover_color);
+  color: var(--hover_color);
+  background-color: rgba(0, 0, 0, 0);
+  outline: 0
+}
+
+@media (max-width:768px) {
+  .sidebar{
+    height: 69px;
+    bottom: 0;
+    padding: 0px 0px;
+  }
+  .option{
+    margin:0px ;
+  }
+
+}
+
+.ok{
+  opacity: 0;
+}
+
+.error{
+  opacity: 0;
+}
