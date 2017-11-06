@@ -9,8 +9,10 @@
     <link href="https://fonts.googleapis.com/css?family=nunito" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/main.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/main.css">
+
 
   </head>
   <body>
@@ -42,7 +44,7 @@
           </a>
 
           <a href="edit.html">
-          <div class="col-md-12 col-xs-4 text-center option ">
+          <div class="col-md-12 col-xs-4 text-center option active">
             <div class="col-md-12" style="padding:3px">
               <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                 	 width="51.5px" height="33.3px" viewBox="-365 292.1 51.5 33.3" style="enable-background:new -365 292.1 51.5 33.3;"
@@ -61,10 +63,10 @@
           </div>
             EDIT
           </div>
-          </a>
+        </a>
 
-          <a href="view.html">
-          <div class="col-md-12 col-xs-4 text-center option active">
+        <a href="view.html">
+          <div class="col-md-12 col-xs-4 text-center option">
             <div class="col-md-12" style="padding:3px">
               <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                 	 width="50.8px" height="31.2px" viewBox="68 291 50.8 31.2" style="enable-background:new 68 291 50.8 31.2;" xml:space="preserve"
@@ -82,49 +84,100 @@
           </div>
             VIEW
           </div>
-        </a>
+          </a>
+
 
       </div>
 
-      <div class="col-md-11 col-md-offset-1">
-          <div class="col-md-10 col-md-push-1" style="margin:0 auto">
+      <div class="col-md-11 col-md-offset-1 col-xs-12 col-sm-12">
+          <div class="col-md-10 col-md-push-1 col-sm-10 col-sm-offset-1 col-xs-12 col-xs-offset-0" style="margin:0 auto">
             <div class="row">
-              <div class="col-md-12" style="margin-top:10vh">
-                <table class='table table-striped table-bordered table-hover table-condensed'>
-                  <thead>
-                    <tr>
-                      <th>Student No.</th>
-                      <th>Firstname</th>
-                      <th>Lastname</th>
-                      <th>class</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Lorem</td>
-                      <td>Lorem</td>
-                      <td>Lorem</td>
-                      <td>Lorem</td>
-                    </tr>
-                    <tr>
-                      <td>Lorem</td>
-                      <td>Lorem</td>
-                      <td>Lorem</td>
-                      <td>Lorem</td>
-                    </tr><tr>
-                      <td>Lorem</td>
-                      <td>Lorem</td>
-                      <td>Lorem</td>
-                      <td>Lorem</td>
-                    </tr>
-                  </tbody>
-                </table>
+              <div class="col-md-6 col-md-offset-3 col-sm-offset-2" style="margin-top:10vh">
+                <label for="">Search for Student's with their id</label>
 
+              <div class="input-group">
+                <input type="text" class="form-control" id="search" placeholder="Student No.">
+                <span class="input-group-btn">
+                  <button class="btn btn-default" type="button" onclick="search()">Go!</button>
+                </span>
+            </div>
+          </div>
+        </div>
+
+         <div class="col-md-12 " style="margin-top:8vh">
+          <form class="" action="index.html" method="post">
+            <div class="col-md-1 col-md-offset-0 col-sm-6 col-sm-offset-3">
+              <div class="input-group">
+                <label for="">studentNo</label>
+                <input type="number" id="studentNo" class="form-control" placeholder="">
               </div>
             </div>
+
+            <div class="col-md-4 col-sm-12">
+              <div class="input-group">
+                <label for="">Firstname</label>
+                <input type="text" id="fname" class="form-control" placeholder="">
+              </div>
+            </div>
+
+            <div class="col-md-4 col-sm-12">
+              <div class="input-group">
+                <label for="">Lastname</label>
+                <input type="text" id="lname" class="form-control" placeholder="">
+              </div>
+            </div>
+
+            <div class="col-md-3 ">
+              <label for="">Class (Jss1, Jss2, Jss3)</label>
+              <input type="text" id="class" name="" class="form-control" value="">
+            </div>
+
+            <div class="col-md-10 text-center " style="padding-top: 5vh">
+              <button type="button" class="btn-default col-md-3  btn btn-default add-button" name="button"
+               onclick="update()" style="margin: 5px">
+                Update
+              </button>
+
+              <button type="button" class="col-md-3 btn btn-default add-button" name="button" onclick="remove()" style="margin: 5px">
+                delete
+              </button>
+            </div>
+
+            <div class="col-md-6 col-md-offset-3 ok" id="ok">
+                  <div class="alert alert-success alert-dismissable fade in text-center">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>Updated</strong> 
+                  </div>
+                  </div>
+
+                   <div class="col-md-6 col-md-offset-3 delete" id="delete">
+                  <div class="alert alert-success alert-dismissable fade in text-center">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>Deleted</strong> 
+                  </div>
+                  </div>
+
+
+
+                  <div class="col-md-12 error" id="error">
+                    <div class="alert alert-danger alert-dismissable fade in">
+                      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                      <strong>Danger!</strong> This alert box could indicate a dangerous or potentially negative action.
+                    </div>
+                  </div>
+
+
+
+          </form>
         </div>
       </div>
-    </div>
 
+    </div>
+</div>
+
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> -->
+    <script src="/js/jquery-3.1.1.min.js"></script>
+    <script src="/js/requests.js" charset="utf-8"></script>
   </body>
 </html>

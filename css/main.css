@@ -125,10 +125,25 @@
 
 }
 
+
 .ok{
   opacity: 0;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+
 }
+
+
+
+.delete{
+  opacity: 0;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
 
 .error{
   opacity: 0;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
 }

@@ -6,14 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title></title>
 
-    <!-- <link href="https://fonts.googleapis.com/css?family=nunito" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=nunito" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/main.css">
+
+    <style type="text/css">
+      table, th, td 
+        {
+            margin:10px 0;
+            border:solid 1px #333;
+            padding:20px;
+            font-size: 15px;
+        }
+        th{
+          padding:10px;
+        }
+      
+    </style>
 
   </head>
-  <body>
+  <body onload="all()">
     <div class="container-fluid" style="padding:0px;">
       <div class="col-md-12 header">
         School Management
@@ -21,8 +35,8 @@
 
 
       <div class="col-md-1 col-sm-12 col-xs-12 sidebar" >
-        <a href="#">
-          <div class="col-md-12 col-sm-4 col-xs-4 text-center option active">
+        <a href="add.html">
+          <div class="col-md-12 col-sm-4 col-xs-4 text-center option">
             <div class="col-md-12" style="padding:3px">
               <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                 	 width="42.8px" height="31px" viewBox="-371 290.6 42.8 31" style="enable-background:new -371 290.6 42.8 31;"
@@ -62,8 +76,9 @@
             EDIT
           </div>
           </a>
+
           <a href="view.html">
-          <div class="col-md-12 col-xs-4 text-center option">
+          <div class="col-md-12 col-xs-4 text-center option active">
             <div class="col-md-12" style="padding:3px">
               <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                 	 width="50.8px" height="31.2px" viewBox="68 291 50.8 31.2" style="enable-background:new 68 291 50.8 31.2;" xml:space="preserve"
@@ -81,65 +96,25 @@
           </div>
             VIEW
           </div>
-          </a>
-
+        </a>
 
       </div>
 
       <div class="col-md-11 col-md-offset-1">
-        <div class="row" style="padding:10px;">
-
           <div class="col-md-10 col-md-push-1" style="margin:0 auto">
             <div class="row">
-              <div class="col-md-12" style="margin-top:10vh">
-                <form class="" action="add.html" method="post">
+              <h4 style="margin-top: 5vh"> To edit the file, Copy the <b>_id</b> of the row you want to edit .
+              <div class="col-md-12" id="showData" style="margin-top:2vh">
+                  
+                <small>Loading...</small>
 
-                  <div class="col-md-2 col-sm-2 col-xs-6">
-                    <label for="">Student No.</label>
-                    <input type="number" id="studentno" class="form-control" name="" value="">
-                  </div>
-
-                  <div class="col-md-4 col-sm-4 col-xs-12">
-                    <label for="">Firstname</label>
-                    <input type="text" id="firstname" class="form-control" name="" value="">
-                  </div>
-
-                  <div class="col-md-4 col-sm-4 col-xs-12">
-                    <label for="">Lastname</label>
-                    <input type="text" id="lastname" class="form-control" name="" value="">
-                  </div>
-
-                  <div class="col-md-2 col-sm-2 col-xs-12">
-                    <label for="">Class</label>
-                    <select class="form-control" id="class">
-                      <option value="1">Jss1</option>
-                      <option value="2">Jss2</option>
-                      <option value="3">Jss3</option>
-                    </select>
-                  </div>
-
-                  <div class="col-md-12 col-xs-12" style="padding-top:20px;">
-                    <input type="subit" onclick="add()" class="btn btn-default col-md-2 col-md-offset-10 col-sm-2 col-sm-offset-5 col-xs-4 col-xs-offset-4 add-button" name="" value="Add">
-                  </div>
-
-                  <div class="col-md-12 ok" id="ok">
-                    right
-                  </div>
-                  <div class="col-md-12 error" id="wrong">
-                    wrong
-                  </div>
-                </form>
               </div>
             </div>
-          </div>
-
         </div>
-
       </div>
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="js/jquery-3.1.1.min.js" charset="utf-8"></script>
-    <script src="js/requests.js" charset="utf-8"></script>
+    <script src="/js/requests.js"></script>
+
   </body>
 </html>

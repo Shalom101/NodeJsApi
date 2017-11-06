@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title></title>
 
-    <link href="https://fonts.googleapis.com/css?family=nunito" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css?family=nunito" rel="stylesheet"> -->
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> 
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/main.css">
 
   </head>
   <body>
@@ -22,8 +23,8 @@
 
 
       <div class="col-md-1 col-sm-12 col-xs-12 sidebar" >
-        <a href="add.html">
-          <div class="col-md-12 col-sm-4 col-xs-4 text-center option">
+        <a href="#">
+          <div class="col-md-12 col-sm-4 col-xs-4 text-center option active">
             <div class="col-md-12" style="padding:3px">
               <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                 	 width="42.8px" height="31px" viewBox="-371 290.6 42.8 31" style="enable-background:new -371 290.6 42.8 31;"
@@ -43,7 +44,7 @@
           </a>
 
           <a href="edit.html">
-          <div class="col-md-12 col-xs-4 text-center option active">
+          <div class="col-md-12 col-xs-4 text-center option ">
             <div class="col-md-12" style="padding:3px">
               <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                 	 width="51.5px" height="33.3px" viewBox="-365 292.1 51.5 33.3" style="enable-background:new -365 292.1 51.5 33.3;"
@@ -62,9 +63,8 @@
           </div>
             EDIT
           </div>
-        </a>
-
-        <a href="view.html">
+          </a>
+          <a href="view.html">
           <div class="col-md-12 col-xs-4 text-center option">
             <div class="col-md-12" style="padding:3px">
               <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -89,30 +89,68 @@
       </div>
 
       <div class="col-md-11 col-md-offset-1">
+        <div class="row" style="padding:10px;">
+
           <div class="col-md-10 col-md-push-1" style="margin:0 auto">
             <div class="row">
-              <div class="col-md-6 col-xs-offset-3" style="margin-top:10vh">
-                <label for="">Search for Student's with their numbers</label>
+              <div class="col-md-12" style="margin-top:10vh">
 
-              <div class="input-group">
-                <input type="number" class="form-control" placeholder="Student No.">
-                <span class="input-group-btn">
-                  <button class="btn btn-default" type="button">Go!</button>
-                </span>
+                  <div class="col-md-2 col-sm-2 col-xs-6">
+                    <label for="">Student No.</label>
+                    <input type="number" id="studentno" class="form-control" name="" value="" >
+                  </div>
+
+                  <div class="col-md-4 col-sm-4 col-xs-12">
+                    <label for="">Firstname</label>
+                    <input type="text" id="firstname" class="form-control" name="" value="">
+                  </div>
+
+                  <div class="col-md-4 col-sm-4 col-xs-12">
+                    <label for="">Lastname</label>
+                    <input type="text" id="lastname" class="form-control" name="" value="">
+                  </div>
+
+                  <div class="col-md-2 col-sm-2 col-xs-12">
+                    <label for="">Class</label>
+                    <select class="form-control" id="class">
+                      <option value="1">Jss1</option>
+                      <option value="2">Jss2</option>
+                      <option value="3">Jss3</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-12 col-xs-12" style="padding-top:20px;">
+                    <input type="submit" onclick="add()" class="btn btn-default col-md-2 col-md-offset-10 col-sm-2 col-sm-offset-5 col-xs-4 col-xs-offset-4 add-button" name="" value="Add">
+                  </div>
+
+
+                  <div class="col-md-6 col-md-offset-3 ok" id="ok">
+                  <div class="alert alert-success alert-dismissable fade in text-center">
+                    <!-- <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> -->
+                    <strong>ADDED</strong> 
+                  </div>
+                  </div>
+
+                  <div class="col-md-12 error" id="error">
+                    <div class="alert alert-danger alert-dismissable fade in">
+                      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                      <strong>Danger!</strong> This alert box could indicate a dangerous or potentially negative action.
+                    </div>
+                  </div>
+              </div>
             </div>
           </div>
+
         </div>
 
-        <div class="col-md-10 col-md-push-1" style="margin:0 auto">
-          
-        </div>
       </div>
-
     </div>
-</div>
 
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="/js/jquery-3.1.1.min.js" charset="utf-8"></script>
+    <script src="/js/requests.js" charset="utf-8"></script>
+    <script src="/js/bootstrap.js" charset="utf-8"></script>
 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> -->
-    <script src="js/jquery-3.1.1.min.js"></script>
   </body>
 </html>
