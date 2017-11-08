@@ -4,9 +4,10 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "start": "node server.js"
   },
-  "author": "",
+  "author": "Shalom Izebhor",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.2",
@@ -16,5 +17,17 @@
   },
   "devDependencies": {
     "nodemon": "^1.12.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shalom101/NodeJsApi.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Shalom101/NodeJsApi/issues"
+  },
+  "homepage": "https://github.com/Shalom101/NodeJsApi#readme",
+	"engines": {
+    "node": "7.10.0"
+  }  
+
 }
