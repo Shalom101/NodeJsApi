@@ -11,29 +11,21 @@
          document.getElementById('delete').style.opacity=1;
         }
 
-
-    
-
-
-
    function add() {
-    var studentNo=document.getElementById('studentno');
     var fname=document.getElementById('firstname');
     var lname=document.getElementById('lastname');
     var clas=document.getElementById('class');
+    var grade=document.getElementById('grade');
 
-    var rstudentNo=studentNo.value;
+
     var rfname=fname.value;
     var rlname=lname.value;
     var selected_class=clas.options[clas.selectedIndex].text;
+    var selected_grade=grade.options[grade.selectedIndex].text;
 
-
-
-    var data = "no="+rstudentNo+"&fname="+rfname+"&lname="+rlname+"&class="+selected_class+"";
-
+    var data = "fname="+rfname+"&lname="+rlname+"&class="+selected_class+"&grade="+selected_grade+"";
     var xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
-
     xhr.addEventListener("readystatechange", function () {
       if (this.readyState === 4) {
         console.log(this.responseText);
@@ -43,54 +35,55 @@
     xhr.open("POST", "http://localhost:8000/students/");
     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
     xhr.setRequestHeader("cache-control", "no-cache");
-    xhr.setRequestHeader("postman-token", "c3bd2290-5ad5-df09-1c56-ada01d3d9958");
+    xhr.setRequestHeader("postman-token", "d3c53d9f-f730-4ca7-509e-6066a5ef6e6e");
 
     xhr.send(data);
 
-     studentNo.value="";
      fname.value="";
      lname.value="";
      clas.value=1;
+     grade.value=1;
 
      ok();
 
      function exit() {
          document.getElementById('ok').style.opacity=0;
      }
-
         setTimeout(exit,1500);
-
    }
 
+
+
+
+
 function search() {
-  var data = "no= &fname=  &lname= &class=";
+  var data = "fname= &lname= &class= &grade= ";
 
   var xhr = new XMLHttpRequest();
   xhr.withCredentials = true;
-
   xhr.addEventListener("readystatechange", function () {
     if (this.readyState === 4) {
       console.log(this.responseText);
       var result=  JSON.parse(this.responseText);
-        console.log(result.studentNo);
-
     }
-    var rNo=result.studentNo;
-    var rfn=result.firstname;
-    var rln=result.lastname;
-    var rcl=result.class;
 
-    var studentNo=document.getElementById('studentNo');
-    var fname=document.getElementById('fname');
-    var lname=document.getElementById('lname');
-    var clas=document.getElementById('class');
+    var rfn=result.Firstname;
+    var rln=result.Lastname;
+    var rcl=result.Class;
+    var rgr=result.Grade;
 
-    studentNo.value=rNo;
+
+    var fname=document.getElementById('firstname');
+    var lname=document.getElementById('lastname');
+    var clas=document.getElementById('old_class');
+    var grade=document.getElementById('old_grade');
+
+
     fname.value=rfn;
     lname.value=rln;
-    clas.value=rcl;
+    clas.innerHTML=rcl;
+    grade.innerHTML=rgr;
 
-    console.log(rln);
   });
 
 
@@ -100,21 +93,31 @@ function search() {
   xhr.setRequestHeader("cache-control", "no-cache");
   xhr.setRequestHeader("postman-token", "32f73f4c-900f-3d51-5929-9b2d0b4540b8");
 
- 
+
   xhr.send(data);
 
 }
 
- 
+
+
+
 function update() {
 
-    var studentNo_=document.getElementById('studentNo').value;
-    var fname_=document.getElementById('fname').value;
-    var lname_=document.getElementById('lname').value;
-    var clas_=document.getElementById('class').value;
+    var fname1=document.getElementById('firstname');
+    var lname1=document.getElementById('lastname');
+    var clas1=document.getElementById('class');
+    var grade1=document.getElementById('grade');
+    var Oclass=document.getElementById('old_class');
+    var Ograde=document.getElementById('old_grade');
 
-    var data = "no="+studentNo_+"&fname="+fname_+"&lname="+lname_+"&class="+clas_+"";
+    var Ufname=fname1.value;
+    var Ulname=lname1.value;
+    var s_class=clas1.options[clas1.selectedIndex].text;
+    var s_grade=grade1.options[grade1.selectedIndex].text;
 
+
+
+    var data = "fname="+Ufname+"&lname="+Ulname+"&class="+s_class+"&grade="+s_grade+"";
 
     var xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
@@ -125,9 +128,10 @@ function update() {
       }
     });
 
-    var search_update=document.getElementById('search').value;
+    var search_update=document.getElementById('search');
+    var searchValue=search_update.value;
 
-    xhr.open("PUT", "http://localhost:8000/students/"+search_update+"");
+    xhr.open("PUT", "http://localhost:8000/students/"+searchValue+"");
     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
     xhr.setRequestHeader("cache-control", "no-cache");
     xhr.setRequestHeader("postman-token", "c2a07b4a-4818-1b44-5d2a-4888b1551a03");
@@ -142,10 +146,20 @@ function update() {
 
         setTimeout(exit,1500);
 
+        fname1.value="";
+        lname1.value="";
+        Oclass.innerHTML="";
+        Ograde.innerHTML="";
+        clas1.value=1;
+        grade1.value=1;
+
+
 }
 
-function remove() {
 
+
+function remove() {
+  var data = "fname= &lname= &class= &grade= ";
 
     var xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
@@ -162,12 +176,19 @@ function remove() {
     xhr.setRequestHeader("cache-control", "no-cache");
     xhr.setRequestHeader("postman-token", "99520c69-d535-66ec-2f82-0cea20d7d834");
 
-    
-     document.getElementById('studentNo').value="";
-    document.getElementById('fname').value="";
-    document.getElementById('lname').value="";
-    document.getElementById('class').value="";
+
+    document.getElementById('firstname').value="";
+    document.getElementById('lastname').value="";
+    document.getElementById('class').value=1;
+    document.getElementById('grade').value=1;
+    document.getElementById('old_class').innerHTML="";
+    document.getElementById('old_grade').innerHTML="";
     document.getElementById('search').value="";
+
+
+
+    xhr.send(data);
+
     delete_();
 
 
@@ -176,13 +197,13 @@ function remove() {
      }
 
         setTimeout(exit,1500);
-    xhr.send(data);
 }
 
 
  function all() {
-      
-      var data = "no= &fname= &lname= &class= ";
+
+   var data = "fname= &lname= &class= &grade= ";
+
 
     var xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
@@ -203,12 +224,12 @@ function remove() {
         }
 
         var table = document.createElement("table");
-         table.className = 'table-striped table-bordered table-hover table-condensed';
+         table.className = 'table table-striped table-bordered table-hover table-condensed';
 
-        var tr = table.insertRow(-1);                   
+        var tr = table.insertRow(-1);
 
         for (var i = 0; i < col.length; i++) {
-            var th = document.createElement("th");     
+            var th = document.createElement("th");
             th.innerHTML = col[i];
             tr.appendChild(th);
         }
@@ -222,6 +243,7 @@ function remove() {
                 tabCell.innerHTML = myBooks[i][col[j]];
             }
         }
+
         var divContainer = document.getElementById("showData");
         divContainer.innerHTML = "";
         divContainer.appendChild(table);

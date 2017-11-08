@@ -58,11 +58,13 @@
   background: var(--gradient);
   height: 90vh;
   position: fixed;
+  z-index: 5;
   margin-top: 10vh;
   padding: 30px 0px;
 }
 
 .option{
+  z-index: 3;
   font-size: 17px;
   color: white;
   font-family: Nunito;
@@ -95,7 +97,7 @@
   fill:var(--hover_color);
 }
 
-.add-button{
+.gen-button{
   background-color: var(--hover_color);
   color: white;
   border: 0px;
@@ -106,23 +108,11 @@
   outline: 0;
 }
 
-.add-button:hover, .add-button:active, .add-button:focus{
+.gen-button:hover, .gen-button:active, .gen-button:focus{
   border: 1px solid var(--hover_color);
   color: var(--hover_color);
   background-color: rgba(0, 0, 0, 0);
   outline: 0
-}
-
-@media (max-width:768px) {
-  .sidebar{
-    height: 69px;
-    bottom: 0;
-    padding: 0px 0px;
-  }
-  .option{
-    margin:0px ;
-  }
-
 }
 
 
@@ -146,4 +136,38 @@
   opacity: 0;
   -webkit-transition: var(--transition);
   transition: var(--transition);
+}
+
+.update{
+  font-size: 16px;
+  color: var(--hover_color);
+}
+
+.form-container{
+  margin-top:8vh
+}
+
+.search-container{
+    margin-top:10vh
+}
+
+@media (max-width:768px) {
+  .sidebar{
+    height: 69px;
+    bottom: 0;
+    padding: 0px 0px;
+  }
+  .option{
+    margin:0px ;
+  }
+
+  .form-container{
+    margin-top:4vh
+  }
+  .search-container{
+      margin-top:5vh
+  }
+
+
+
 }

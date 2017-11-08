@@ -1,43 +1,43 @@
 var ObjectID = require('mongodb').ObjectID;
 var mongoose = require('mongoose');
-const cors 			 = require('cors');
+var option = {
+    server: {
+        socketOptions: {
+            keepAlive: 300000,
+            connectTimeoutMS: 50000
+        }
+    },
+    replset: {
+        socketOptions: {
+            keepAlive: 300000,
+            connectTimeoutMS: 50000
+        }
+    }
+};
+
+var mongoURI = process.env.MONGODB_URI;
 
 module.exports = function(app, db) {
+mongoose.connect('mongodb://shalom1:64387605@ds249605.mlab.com:49605/schooldata');
 
+var Schema = mongoose.Schema;
 
-const mongoose = require('mongoose');
-mongoose.connect('mongodb://shalom:64387605@ds159330.mlab.com:59330/school_management');
-	var Schema = mongoose.Schema;
-	var studentSchema = new Schema({
-	  studentNo: Number,
-	  firstname: { type: String, required: true, unique: true },
-	  lastname: { type: String, required: true },
-	  class: String
-  });
-
-	
-
-  app.get('/students/',(req,res) => {
-
-  	var Student = mongoose.model('Student', studentSchema);
-	module.exports = Student;
-
-	Student.find({}, function(err, students) {
-  if (err) throw err;
-
-  console.log(students);
-
-  res.send(students);
-
-  })
+var studentSchema = new Schema({
+	firstname: { type: String, required: true, unique: true },
+	lastname: { type: String, required: true },
+	class: String,
+	Grade: String
 });
 
+var Student = mongoose.model('Student', studentSchema);
 
-	app.use(function(req, res, next) {
-  // res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  res.header("Access-Control-Allow-Credentials" ,"true");
-  next();
+app.get('/students/',(req,res) => {
+	Student.find({}, function(err, students) {
+	  if (err) throw err;
+
+
+		res.send(students);
+	});
 });
 
 
@@ -57,7 +57,7 @@ mongoose.connect('mongodb://shalom:64387605@ds159330.mlab.com:59330/school_manag
 
 
   app.post('/students', (req, res) => {
-    const student = { studentNo: req.body.no, firstname: req.body.fname, lastname: req.body.lname, class: req.body.class};
+    const student = { Firstname: req.body.fname, Lastname: req.body.lname, Class: req.body.class , Grade: req.body.grade};
     db.collection('students').insert(student, (err, result) => {
       if (err) {
         res.send({ 'error': 'An error has occurred' });
@@ -73,8 +73,8 @@ mongoose.connect('mongodb://shalom:64387605@ds159330.mlab.com:59330/school_manag
   app.put('/students/:id', (req, res) => {
     const id = req.params.id;
     const details = { '_id': new ObjectID(id) };
-    const student = { studentNo: req.body.no, firstname: req.body.fname, lastname: req.body.lname, class: req.body.class };
-    db.collection('students').update(details, student, (err, result) => {
+		const student = { Firstname: req.body.fname, Lastname: req.body.lname, Class: req.body.class , Grade: req.body.grade};
+		db.collection('students').update(details, student, (err, result) => {
       if (err) {
           res.send({'error':'An error has occurred'});
       } else {
@@ -97,5 +97,3 @@ mongoose.connect('mongodb://shalom:64387605@ds159330.mlab.com:59330/school_manag
     });
   });
 };
-
-

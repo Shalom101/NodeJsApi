@@ -1,3 +1,3 @@
 module.exports = {
-  url : 'mongodb://shalom:64387605@ds159330.mlab.com:59330/school_management'
+  url : 'mongodb://shalom1:64387605@ds249605.mlab.com:49605/schooldata'
 };
