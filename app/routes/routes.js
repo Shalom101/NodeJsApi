@@ -31,7 +31,7 @@ var studentSchema = new Schema({
 
 var Student = mongoose.model('Student', studentSchema);
 
-app.get('/students',(req,res) => {
+app.get('/students',(req,res,next) => {
 	Student.find({}, function(err, students) {
 	  if (err) throw err;
 
@@ -41,7 +41,7 @@ app.get('/students',(req,res) => {
 
 
 
-  app.get('/students/:id', (req, res) => {
+  app.get('/students/:id', (req, res,next) => {
     const id = req.params.id;
     const details = { '_id': new ObjectID(id) };
     db.collection('students').findOne(details, (err, item) => {
@@ -55,7 +55,7 @@ app.get('/students',(req,res) => {
 
 
 
-  app.post('/students', (req, res) => {
+  app.post('/students', (req, res, next) => {
     const student = { Firstname: req.body.fname, Lastname: req.body.lname, Class: req.body.class , Grade: req.body.grade};
     db.collection('students').insert(student, (err, result) => {
       if (err) {
@@ -69,7 +69,7 @@ app.get('/students',(req,res) => {
 
 
 
-  app.put('/students/:id', (req, res) => {
+  app.put('/students/:id', (req, res, next) => {
     const id = req.params.id;
     const details = { '_id': new ObjectID(id) };
 		const student = { Firstname: req.body.fname, Lastname: req.body.lname, Class: req.body.class , Grade: req.body.grade};
@@ -84,7 +84,7 @@ app.get('/students',(req,res) => {
 
 
 
-  app.delete('/students/:id', (req, res) => {
+  app.delete('/students/:id', (req, res, next) => {
     const id = req.params.id;
     const details = { '_id': new ObjectID(id) };
     db.collection('students').remove(details, (err, item) => {

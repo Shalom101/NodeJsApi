@@ -28,7 +28,7 @@
     xhr.withCredentials = true;
     xhr.addEventListener("readystatechange", function () {
       if (this.readyState === 4) {
-        console.log(this.responseText);
+        // console.log(this.responseText);
       }
     });
 
@@ -63,7 +63,7 @@ function search() {
   xhr.withCredentials = true;
   xhr.addEventListener("readystatechange", function () {
     if (this.readyState === 4) {
-      console.log(this.responseText);
+      // console.log(this.responseText);
       var result=  JSON.parse(this.responseText);
     }
 
@@ -124,7 +124,7 @@ function update() {
 
     xhr.addEventListener("readystatechange", function () {
       if (this.readyState === 4) {
-        console.log(this.responseText);
+        // console.log(this.responseText);
       }
     });
 
@@ -166,7 +166,7 @@ function remove() {
 
     xhr.addEventListener("readystatechange", function () {
       if (this.readyState === 4) {
-        console.log(this.responseText);
+        // console.log(this.responseText);
       }
     });
 
@@ -206,16 +206,17 @@ function remove() {
 
     var xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
-
+    
     xhr.addEventListener("readystatechange", function () {
       if (this.readyState === 4) {
-        console.log(this.responseText);
+        // console.log(this.responseText);
+
       }
-        var students = JSON.parse(this.responseText);
+        var Allstudents= JSON.parse(this.responseText);
 
         var col = [];
-        for (var i = 0; i < students.length; i++) {
-            for (var key in students[i]) {
+        for (var i = 0; i < Allstudents.length; i++) {
+            for (var key in Allstudents[i]) {
                 if (col.indexOf(key) === -1) {
                     col.push(key);
                 }
@@ -233,13 +234,13 @@ function remove() {
             tr.appendChild(th);
         }
 
-        for (var i = 0; i < students.length; i++) {
+        for (var i = 0; i < Allstudents.length; i++) {
 
             tr = table.insertRow(-1);
 
             for (var j = 0; j < col.length; j++) {
                 var tabCell = tr.insertCell(-1);
-                tabCell.innerHTML = students[i][col[j]];
+                tabCell.innerHTML = Allstudents[i][col[j]];
             }
         }
 
@@ -254,5 +255,7 @@ function remove() {
     xhr.setRequestHeader("postman-token", "a09bc67c-345e-f945-d396-6703d7c3db39");
 
     xhr.send(data);
+
+
 
    }
