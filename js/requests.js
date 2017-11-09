@@ -200,23 +200,22 @@ function remove() {
 }
 
 
- function all() {
+ function view() {
 
    var data = "fname= &lname= &class= &grade= ";
-
 
     var xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
 
     xhr.addEventListener("readystatechange", function () {
       if (this.readyState === 4) {
-        // console.log(this.responseText);
+        console.log(this.responseText);
       }
-        var myBooks = JSON.parse(this.responseText);
+        var students = JSON.parse(this.responseText);
 
         var col = [];
-        for (var i = 0; i < myBooks.length; i++) {
-            for (var key in myBooks[i]) {
+        for (var i = 0; i < students.length; i++) {
+            for (var key in students[i]) {
                 if (col.indexOf(key) === -1) {
                     col.push(key);
                 }
@@ -234,13 +233,13 @@ function remove() {
             tr.appendChild(th);
         }
 
-        for (var i = 0; i < myBooks.length; i++) {
+        for (var i = 0; i < students.length; i++) {
 
             tr = table.insertRow(-1);
 
             for (var j = 0; j < col.length; j++) {
                 var tabCell = tr.insertCell(-1);
-                tabCell.innerHTML = myBooks[i][col[j]];
+                tabCell.innerHTML = students[i][col[j]];
             }
         }
 
