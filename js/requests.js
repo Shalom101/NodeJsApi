@@ -32,7 +32,7 @@
       }
     });
 
-    xhr.open("POST", "http://localhost:8000/students/");
+    xhr.open("POST", "https://tranquil-tundra-53366.herokuapp.com/students/");
     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
     xhr.setRequestHeader("cache-control", "no-cache");
     xhr.setRequestHeader("postman-token", "d3c53d9f-f730-4ca7-509e-6066a5ef6e6e");
@@ -88,7 +88,7 @@ function search() {
 
 
     var search=document.getElementById('search').value;
-  xhr.open("GET", "http://localhost:8000/students/"+search+"");
+  xhr.open("GET", "https://tranquil-tundra-53366.herokuapp.com/students/"+search+"");
   xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
   xhr.setRequestHeader("cache-control", "no-cache");
   xhr.setRequestHeader("postman-token", "32f73f4c-900f-3d51-5929-9b2d0b4540b8");
@@ -131,7 +131,7 @@ function update() {
     var search_update=document.getElementById('search');
     var searchValue=search_update.value;
 
-    xhr.open("PUT", "http://localhost:8000/students/"+searchValue+"");
+    xhr.open("PUT", "https://tranquil-tundra-53366.herokuapp.com/students/"+searchValue+"");
     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
     xhr.setRequestHeader("cache-control", "no-cache");
     xhr.setRequestHeader("postman-token", "c2a07b4a-4818-1b44-5d2a-4888b1551a03");
@@ -171,7 +171,7 @@ function remove() {
     });
 
     var search_remove=document.getElementById('search').value;
-    xhr.open("DELETE", "http://localhost:8000/students/"+search_remove+"");
+    xhr.open("DELETE", "https://tranquil-tundra-53366.herokuapp.com/students/"+search_remove+"");
     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
     xhr.setRequestHeader("cache-control", "no-cache");
     xhr.setRequestHeader("postman-token", "99520c69-d535-66ec-2f82-0cea20d7d834");
@@ -249,7 +249,7 @@ function remove() {
         divContainer.appendChild(table);
     });
 
-    xhr.open("GET", "http://localhost:8000/students");
+    xhr.open("GET", "https://tranquil-tundra-53366.herokuapp.com/students");
     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
     xhr.setRequestHeader("cache-control", "no-cache");
     xhr.setRequestHeader("postman-token", "a09bc67c-345e-f945-d396-6703d7c3db39");
