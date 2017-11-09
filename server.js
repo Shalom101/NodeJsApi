@@ -9,6 +9,8 @@ const port = 8000;
 const path =require('path');
 
 
+
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/img",express.static("img"));
 app.use("/css",express.static("css"));
