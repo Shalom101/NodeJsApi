@@ -248,7 +248,7 @@ function remove() {
         divContainer.appendChild(table);
     });
 
-    xhr.open("GET", "http://localhost:8000/students/");
+    xhr.open("GET", "http://localhost:8000/students");
     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
     xhr.setRequestHeader("cache-control", "no-cache");
     xhr.setRequestHeader("postman-token", "a09bc67c-345e-f945-d396-6703d7c3db39");

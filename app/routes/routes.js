@@ -31,10 +31,9 @@ var studentSchema = new Schema({
 
 var Student = mongoose.model('Student', studentSchema);
 
-app.get('/students/',(req,res) => {
+app.get('/students',(req,res) => {
 	Student.find({}, function(err, students) {
 	  if (err) throw err;
-
 
 		res.send(students);
 	});
