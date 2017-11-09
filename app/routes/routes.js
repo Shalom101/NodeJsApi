@@ -1,5 +1,8 @@
 var ObjectID = require('mongodb').ObjectID;
 var mongoose = require('mongoose');
+var cors = require('cors');
+app.use(cors());
+
 var option = {
     server: {
         socketOptions: {

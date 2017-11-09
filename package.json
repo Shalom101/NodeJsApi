@@ -1,7 +1,7 @@
 {
   "name": "school_management",
   "version": "1.0.0",
-  "description": "",
+  "description": "nodeJs",
   "main": "server.js",
   "scripts": {
     "dev": "nodemon server.js",
