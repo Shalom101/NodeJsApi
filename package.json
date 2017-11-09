@@ -25,7 +25,6 @@
   "bugs": {
     "url": "https://github.com/Shalom101/NodeJsApi/issues"
   },
-  "homepage": "https://github.com/Shalom101/NodeJsApi#readme",
 	"engines": {
     "node": "7.10.0"
   }  
